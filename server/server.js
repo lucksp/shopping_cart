@@ -16,14 +16,14 @@ if (process.env.NODE_ENV !== "production") {
     require("webpack-dev-middleware")(compiler, {
       noInfo: true,
       publicPath: config.output.publicPath,
-      hot: true
+      hot: true,
     })
   );
   app.use(
     require("webpack-hot-middleware")(compiler, {
       log: console.log,
       path: "/__webpack_hmr",
-      heartbeat: 10 * 1000
+      heartbeat: 10 * 1000,
     })
   );
 } else {
@@ -36,7 +36,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/api/data", (req, res) => {
-  res.send("hi from server"); // replace me with real data
+  res.json([{ response: "ok" }]); // replace me with real data
 });
 
 app.listen(port, function(err) {
