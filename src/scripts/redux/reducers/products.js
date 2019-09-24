@@ -10,6 +10,7 @@ export default function data(state = state ? state : initialState, action) {
   switch (action.type) {
     case ActionTypes.PRODUCTS_GET:
       return {
+        ...state,
         loading: false,
         data: [...state.data, ...action.payload],
       };

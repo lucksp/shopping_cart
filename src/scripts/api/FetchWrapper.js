@@ -9,11 +9,10 @@ const checkHttpStatus = response => {
 };
 
 const parseJson = response => {
-  let json;
   try {
-    json = response.json();
+    return response.json();
   } catch (error) {
-    return json;
+    return {};
   }
 };
 
