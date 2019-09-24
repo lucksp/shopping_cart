@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // import Card from "../../components/card";
 import { StyledProductList, StyledProductCard } from "./ProductList.css";
+import Button from "../../components/button";
+import { addItemToCart } from "../../redux/actions/products";
 
-const ProductsList = ({ products }) => {
+const ProductsList = ({ products, addItemToCart }) => {
   return (
     <StyledProductList className="flex">
       {products.map(product => {
@@ -12,9 +14,13 @@ const ProductsList = ({ products }) => {
           <StyledProductCard key={product.id} className="card-product">
             <div className="card-title">{product.title}</div>
             <div className="card-body">
-              <button className="" type="button"></button>
+              <Button
+                className=""
+                value="Add To Cart"
+                handleClick={() => addItemToCart(product.id)}
+              ></Button>
               <div className="right">${product.price}</div>
-              <div>{product.description}</div>
+              <div className="description">{product.description}</div>
             </div>
           </StyledProductCard>
         );
@@ -33,6 +39,7 @@ ProductsList.propTypes = {
       description: PropTypes.string.isRequired,
     })
   ),
+  addItemToCart: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => {
@@ -41,4 +48,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ProductsList);
+const mapDispatchToProps = { addItemToCart };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductsList);

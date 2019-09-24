@@ -12,3 +12,28 @@ export function fetchProducts() {
     });
   };
 }
+
+export function addItemToCart(id) {
+  updateLocalStorage(id);
+  return dispatch => {
+    return dispatch({
+      type: ActionTypes.PRODUCT_ADD,
+      payload: { [id]: 1 },
+    });
+  };
+}
+
+const updateLocalStorage = id => {
+  const storageName = "products";
+  let copyOfStorage = localStorage.getItem(storageName);
+
+  try {
+    copyOfStorage = copyOfStorage.json();
+  } catch (e) {
+    copyOfStorage = {};
+  }
+
+  copyOfStorage[id] = copyOfStorage[id] ? copyOfStorage[id]++ : 1;
+
+  localStorage.setItem(storageName, JSON.stringify(copyOfStorage));
+};

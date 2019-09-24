@@ -4,6 +4,7 @@ import ActionTypes from "../actions/actionTypes";
 const initialState = {
   loading: true,
   data: [],
+  cart: {},
 };
 
 export default function data(state = state ? state : initialState, action) {
@@ -14,6 +15,22 @@ export default function data(state = state ? state : initialState, action) {
         loading: false,
         data: [...state.data, ...action.payload],
       };
+    case ActionTypes.PRODUCT_ADD: {
+      const id = Object.keys(action.payload)[0];
+
+      let tempState = { ...state.cart };
+      let count = tempState[id]
+        ? tempState[id] + action.payload[id]
+        : action.payload[id];
+
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          [id]: (state.cart[id] = count),
+        },
+      };
+    }
   }
   return state;
 }

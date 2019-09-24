@@ -18,4 +18,9 @@ export const StyledProductCard = styled(Card)`
     font-weight: bold;
     color: ${colorVars.dark_blu};
   }
+
+  .description {
+    font-size: 18px;
+    margin: 8px 0;
+  }
 `;
