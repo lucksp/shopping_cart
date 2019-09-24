@@ -1,14 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+// import Card from "../../components/card";
+import { StyledProductList, StyledProductCard } from "./ProductList.css";
 
 const ProductsList = ({ products }) => {
   return (
-    <div>
-      {products.map((product, i) => {
-        return <div key={i}>{product.title}</div>;
+    <StyledProductList className="flex">
+      {products.map(product => {
+        return (
+          <StyledProductCard key={product.id} className="card-product">
+            <div className="card-title">{product.title}</div>
+            <div className="card-body">
+              <button className="" type="button"></button>
+              <div className="right">${product.price}</div>
+              <div>{product.description}</div>
+            </div>
+          </StyledProductCard>
+        );
       })}
-    </div>
+    </StyledProductList>
   );
 };
 

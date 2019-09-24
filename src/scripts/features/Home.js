@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchProducts } from "../redux/actions/products";
 import ProductsList from "./ProductsList";
+import NavBar from "./Navbar";
+import { StyledHome } from "./Home.css";
 
 const Home = ({ loading, fetchProducts }) => {
   const fetchProductData = async () => {
@@ -16,12 +18,12 @@ const Home = ({ loading, fetchProducts }) => {
     return <div>Loading...</div>;
   }
   return (
-    <main>
-      <div>
-        <nav>Shop at GeoParty</nav>
-      </div>
-      <ProductsList />
-    </main>
+    <StyledHome>
+      <NavBar />
+      <main>
+        <ProductsList />
+      </main>
+    </StyledHome>
   );
 };
 
