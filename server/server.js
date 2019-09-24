@@ -1,6 +1,8 @@
 const path = require("path");
 const express = require("express");
 
+const productData = require("./products.json");
+
 const app = express();
 const port = process.env.NODE_ENV === "production" ? 80 : 3000;
 
@@ -36,7 +38,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/api/data", (req, res) => {
-  res.json([{ response: "ok" }]); // replace me with real data
+  res.json(productData);
 });
 
 app.listen(port, function(err) {
