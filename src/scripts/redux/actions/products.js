@@ -23,6 +23,14 @@ export function addItemToCart(id) {
   };
 }
 
+export const updateCart = (value, id) => {
+  return dispatch => {
+    return dispatch({
+      type: ActionTypes.PRODUCT_UPDATE,
+      payload: { value, id },
+    });
+  };
+};
 const updateLocalStorage = id => {
   const storageName = "products";
   let copyOfStorage = localStorage.getItem(storageName);

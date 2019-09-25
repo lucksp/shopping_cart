@@ -8,6 +8,7 @@ export const colorVars = {
   dark_blu: "#343779",
   almost_black: "#273240",
   gray: "#98B5BE",
+  off_white: "#F2F0F0",
 };
 
 export const GlobalStyle = createGlobalStyle`

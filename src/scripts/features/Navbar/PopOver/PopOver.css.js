@@ -1,12 +1,14 @@
 import styled from "styled-components";
+import { colorVars } from "../../../GlobalStyle.css";
 
 export const StyledPopOver = styled.div`
   position: absolute;
-  background-color: gray;
+  background-color: ${colorVars.off_white};
   top: 60px;
   right: 16px;
   padding: 24px;
   max-width: 40%;
+  box-shadow: 1px 4px 6px ${colorVars.dark_blu};
 
   .popover-body {
     position: relative;
@@ -21,7 +23,7 @@ export const StyledPopOver = styled.div`
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-bottom-color: gray;
+    border-bottom-color: ${colorVars.off_white};
     border-width: 16px;
     margin-left: -16px;
   }

@@ -31,6 +31,18 @@ export default function data(state = state ? state : initialState, action) {
         },
       };
     }
+
+    case ActionTypes.PRODUCT_UPDATE: {
+      const { value, id } = action.payload;
+
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          [id]: value,
+        },
+      };
+    }
   }
   return state;
 }
