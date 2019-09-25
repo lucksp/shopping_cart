@@ -5,14 +5,18 @@ import App from "./features/App";
 import { BrowserRouter } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyle.css";
 
+//Redux/State
+import store from "./redux/createStore";
+import { Provider } from "react-redux";
+
 const render = App =>
   ReactDOM.render(
-    <React.Fragment>
+    <Provider store={store}>
       <GlobalStyle />
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </React.Fragment>,
+    </Provider>,
     document.getElementById("root")
   );
 
