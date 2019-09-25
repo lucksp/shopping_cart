@@ -1,12 +1,13 @@
 {
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 9,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["react"],
   "rules": {
     "semi": "error",
     "no-unused-vars": "error",
@@ -17,5 +18,10 @@
   "env": {
     "browser": true,
     "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

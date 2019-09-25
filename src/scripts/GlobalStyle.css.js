@@ -1,5 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 
+export const colorVars = {
+  teal: "#33A9AC",
+  yellange: "#FFA646",
+  orange: "#F86041",
+  fuscia: "#982062",
+  dark_blu: "#343779",
+  almost_black: "#273240",
+  gray: "#98B5BE",
+  off_white: "#F2F0F0",
+};
+
 export const GlobalStyle = createGlobalStyle`
 @import url(‘https://fonts.googleapis.com/css?family=Roboto');
 body{
@@ -15,5 +26,13 @@ body{
 #root {
     height: inherit;
     width: inherit;
+}
+
+.flex {
+  display: flex;
+}
+
+.right {
+  float: right;
 }
 `;

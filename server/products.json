@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "pink chalcedony",
+    "price": 500.01,
+    "inventory": 2,
+    "description": "A pink chalcedony shows off its beauty. Chalcedonies include many types of cryptocrystalline quartz gems and feature a number of different colors. Geologists can tell a chalcedony from the arrangement and structure of its crystals"
+  },
+  {
+    "id": 2,
+    "title": "azurite",
+    "price": 10.99,
+    "inventory": 10,
+    "description": "Azurite crystals from Arizona seem to pulse with color. The mineral azurite—a copper ore—consists of blue basic carbonate. Azurite's brilliant color adds to its popularity in creating semiprecious stones."
+  },
+  {
+    "id": 3,
+    "title": "gypsum",
+    "price": 119.99,
+    "inventory": 5,
+    "description": "Mammoth Cave in Kentucky contains gypsum formations that mimic flowers. The mineral gypsum contains calcium sulfate (calcium, sulfur, oxygen) and water. The gypsum precipitates out of water in the cave, creating these subterranean forms over time."
+  },
+  {
+    "id": 4,
+    "title": "mesolite",
+    "price": 42.2,
+    "inventory": 7,
+    "description": "The needle-like crystals of this mesolite deposit from India give it a dandelion's form. Its crystalline structure formed inside a bubble of volcanic gas as igneous rock cooled. Mesolite's many striking crystal formations make it a popular mineral for collectors."
+  },
+  {
+    "id": 5,
+    "title": "fluoite calcite",
+    "price": 99.99,
+    "inventory": 4,
+    "description": "The seeming disorder of calcite highlights the geometric precision of fluorite. Both minerals can be found throughout the world and form coarse-sized crystals. The difference in the crystal structures between these two minerals offers an idea of the diversity of crystalline forms."
+  },
+  {
+    "id": 6,
+    "title": "rubies",
+    "price": 199.99,
+    "inventory": 8,
+    "description": "Rubies shine red against black rocks. Ruby, the common name for the mineral corundum in its red form, is a precious gemstone. If the mineral has a blue color it's known as a sapphire. Made up of the elements aluminum and oxygen, corundum also can be yellow, gray, or brown."
+  }
+]
