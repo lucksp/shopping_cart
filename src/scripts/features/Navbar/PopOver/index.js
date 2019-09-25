@@ -36,9 +36,10 @@ const PopOver = ({ isOpen, emptyCart, cartItems, updateCart }) => {
         ) : (
           cartItems.map((item, i) => {
             return (
-              <div key={i} className="flex">
-                <div>{item.title}</div>
+              <div key={i} className="cart-item flex">
+                <div className="cart-title">{item.title}</div>
                 <input
+                  className="cart-input"
                   value={item.quantity}
                   type="number"
                   size="4"
@@ -49,7 +50,9 @@ const PopOver = ({ isOpen, emptyCart, cartItems, updateCart }) => {
             );
           })
         )}
-        {cartTotal > 0 && <div>Your Total: ${cartTotal}</div>}
+        {cartTotal > 0 && (
+          <div className="cart-total">Your Total: ${cartTotal}</div>
+        )}
       </div>
     </StyledPopOver>
   );

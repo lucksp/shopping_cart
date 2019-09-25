@@ -8,23 +8,48 @@ export const StyledPopOver = styled.div`
   right: 16px;
   padding: 24px;
   max-width: 40%;
+  width: 40%;
   box-shadow: 1px 4px 6px ${colorVars.dark_blu};
+  font-size: 16px;
 
   .popover-body {
     position: relative;
-    padding: 40px;
-  }
-  .popover-body:before {
-    top: -50px;
-    right: -22px;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-bottom-color: ${colorVars.off_white};
-    border-width: 16px;
-    margin-left: -16px;
+
+    .flex {
+      justify-content: space-between;
+    }
+
+    .cart-item {
+      &:not(:last-of-type) {
+        margin-bottom: 8px;
+      }
+    }
+
+    .cart-title {
+      text-transform: capitalize;
+    }
+
+    .cart-input {
+      border: 1px solid ${colorVars.fuscia};
+      padding: 4px;
+    }
+
+    .cart-total {
+      margin-top: 8px;
+      text-align: right;
+    }
+    &:before {
+      top: -50px;
+      right: -22px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-bottom-color: ${colorVars.off_white};
+      border-width: 16px;
+      margin-left: -16px;
+    }
   }
 `;
