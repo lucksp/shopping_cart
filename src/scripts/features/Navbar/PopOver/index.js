@@ -20,7 +20,10 @@ const PopOver = ({ isOpen, emptyCart, cartItems, updateCart }) => {
   }, [cartItems]);
 
   const handleChange = (e, id) => {
-    const { value } = e.target;
+    let value = 0;
+    if (e.target.value) {
+      value = e.target.value;
+    }
 
     updateCart(parseInt(value), id);
   };

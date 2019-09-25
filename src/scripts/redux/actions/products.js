@@ -42,16 +42,9 @@ const updateLocalStorage = cartState => {
 };
 
 export const checkForCartStorage = () => {
-  let existingCartStorage = null;
-
-  try {
-    existingCartStorage = JSON.parse(localStorage.getItem("products"));
-  } catch (e) {
-    return;
-  }
-  if (!existingCartStorage) {
-    return;
-  }
+  const existingCartStorage = JSON.parse(
+    localStorage.getItem("products") || "{}"
+  );
   return dispatch => {
     return dispatch({
       type: ActionTypes.PRODUCTS_GET_CART_STORAGE,
