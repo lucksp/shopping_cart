@@ -43,6 +43,12 @@ export default function data(state = state ? state : initialState, action) {
         },
       };
     }
+
+    case ActionTypes.PRODUCTS_GET_CART_STORAGE:
+      return {
+        ...state,
+        cart: action.payload,
+      };
   }
   return state;
 }

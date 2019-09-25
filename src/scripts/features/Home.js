@@ -1,17 +1,21 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchProducts } from "../redux/actions/products";
+import { fetchProducts, checkForCartStorage } from "../redux/actions/products";
 import ProductsList from "./ProductsList";
 import NavBar from "./Navbar";
 import { StyledHome } from "./Home.css";
 
-const Home = ({ loading, fetchProducts }) => {
+const Home = ({ loading, fetchProducts, checkForCartStorage }) => {
   const fetchProductData = async () => {
     await fetchProducts();
   };
   useEffect(() => {
     fetchProductData();
+  }, []);
+
+  useEffect(() => {
+    checkForCartStorage();
   }, []);
 
   if (loading) {
@@ -29,6 +33,7 @@ const Home = ({ loading, fetchProducts }) => {
 
 Home.propTypes = {
   fetchProducts: PropTypes.func.isRequired,
+  checkForCartStorage: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
@@ -40,6 +45,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   fetchProducts,
+  checkForCartStorage,
 };
 export default connect(
   mapStateToProps,

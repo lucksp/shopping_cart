@@ -14,34 +14,48 @@ export function fetchProducts() {
 }
 
 export function addItemToCart(id) {
-  updateLocalStorage(id);
-  return dispatch => {
-    return dispatch({
+  return (dispatch, state) => {
+    dispatch({
       type: ActionTypes.PRODUCT_ADD,
       payload: { [id]: 1 },
     });
+
+    const updatedState = state().products.cart;
+    updateLocalStorage(updatedState);
   };
 }
 
 export const updateCart = (value, id) => {
-  return dispatch => {
-    return dispatch({
+  return (dispatch, state) => {
+    dispatch({
       type: ActionTypes.PRODUCT_UPDATE,
       payload: { value, id },
     });
+    const updatedState = state().products.cart;
+    updateLocalStorage(updatedState);
   };
 };
-const updateLocalStorage = id => {
+const updateLocalStorage = cartState => {
   const storageName = "products";
-  let copyOfStorage = localStorage.getItem(storageName);
+
+  localStorage.setItem(storageName, JSON.stringify(cartState));
+};
+
+export const checkForCartStorage = () => {
+  let existingCartStorage = null;
 
   try {
-    copyOfStorage = copyOfStorage.json();
+    existingCartStorage = JSON.parse(localStorage.getItem("products"));
   } catch (e) {
-    copyOfStorage = {};
+    return;
   }
-
-  copyOfStorage[id] = copyOfStorage[id] ? copyOfStorage[id]++ : 1;
-
-  localStorage.setItem(storageName, JSON.stringify(copyOfStorage));
+  if (!existingCartStorage) {
+    return;
+  }
+  return dispatch => {
+    return dispatch({
+      type: ActionTypes.PRODUCTS_GET_CART_STORAGE,
+      payload: existingCartStorage,
+    });
+  };
 };
