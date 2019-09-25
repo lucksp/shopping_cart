@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colorVars } from "../../GlobalStyle.css";
+import Bubble from "../../components/bubble";
 
 export const StyledNavbar = styled.nav`
   height: 48px;
@@ -9,4 +10,13 @@ export const StyledNavbar = styled.nav`
   color: ${colorVars.almost_black};
   align-items: center;
   justify-content: space-between;
+
+  #wrapper-counter {
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const CartBubble = styled(Bubble)`
+  cursor: pointer;
 `;

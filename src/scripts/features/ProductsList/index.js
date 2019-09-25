@@ -2,8 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // import Card from "../../components/card";
-import { StyledProductList, StyledProductCard } from "./ProductList.css";
-import Button from "../../components/button";
+import {
+  StyledProductList,
+  StyledProductCard,
+  AddToCartButton,
+} from "./ProductList.css";
 import { addItemToCart } from "../../redux/actions/products";
 
 const ProductsList = ({ products, addItemToCart }) => {
@@ -11,17 +14,17 @@ const ProductsList = ({ products, addItemToCart }) => {
     <StyledProductList className="flex">
       {products.map(product => {
         return (
-          <StyledProductCard key={product.id} className="card-product">
+          <StyledProductCard key={product.id} className="flex card-product">
             <div className="card-title">{product.title}</div>
             <div className="card-body">
-              <Button
-                className=""
-                value="Add To Cart"
-                handleClick={() => addItemToCart(product.id)}
-              ></Button>
-              <div className="right">${product.price}</div>
+              <div className="">${product.price}</div>
               <div className="description">{product.description}</div>
             </div>
+            <AddToCartButton
+              className="button-add"
+              value="Add To Cart"
+              handleClick={() => addItemToCart(product.id)}
+            />
           </StyledProductCard>
         );
       })}
